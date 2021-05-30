@@ -1,3 +1,10 @@
 .Board {
   margin: 0 auto;
 }
+
+.Board-cellWrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
