@@ -99,22 +99,24 @@ class Board extends Component {
 
 	renderTable(e) {
 		if (this.state.hasWon === false) {
-			return <table className='Board-cellWrap'>
-				<tbody>
-					{this.state.board.map((row, indx) => (
-						<tr key={`row-${indx}`}>
-							{row.map((cell, i) => (
-								<Cell
-									isLit={cell === true ? true : false}
-									flipCellsAroundMe={this.flipCellsAround}
-									key={`${indx}-${i}`}
-									coord={`${indx}-${i}`}
-								/>
-							))}
-						</tr>
-					))}
-				</tbody>
-			</table>;
+			return (
+				<table className='Board-cellWrap'>
+					<tbody>
+						{this.state.board.map((row, indx) => (
+							<tr key={`row-${indx}`}>
+								{row.map((cell, i) => (
+									<Cell
+										isLit={cell === true ? true : false}
+										flipCellsAroundMe={this.flipCellsAround}
+										key={`${indx}-${i}`}
+										coord={`${indx}-${i}`}
+									/>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</table>
+			);
 		} else {
 			return <h2>You Won!</h2>;
 		}
@@ -133,7 +135,9 @@ class Board extends Component {
 
 		return (
 			<div className='Board'>
-				<h1>Lights-Out</h1>
+				<h1 className='Board-title'>
+					<span className="blink_me">Lights</span>-Out
+				</h1>
 				{this.renderTable()}
 			</div>
 		);
