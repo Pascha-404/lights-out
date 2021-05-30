@@ -20,6 +20,10 @@ font-size: 60px;
   margin: 3.5rem auto;
 }
 
+.Board-data{
+  font-size: 18px;
+}
+
 .blink_me {
   animation: blinker 2s linear infinite;
 }

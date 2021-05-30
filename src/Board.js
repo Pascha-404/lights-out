@@ -34,7 +34,7 @@ class Board extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { hasWon: false, board: this.createBoard() };
+		this.state = { hasWon: false, board: this.createBoard(), clicks: 0 };
 		// TODO: set initial state
 		this.flipCellsAround = this.flipCellsAround.bind(this);
 	}
@@ -94,7 +94,7 @@ class Board extends Component {
 		// win when every cell is turned off
 		// TODO: determine is the game has been won
 
-		this.setState({ board, hasWon });
+		this.setState(curState => ({ board, hasWon, clicks: curState.clicks + 1 }));
 	}
 
 	renderTable(e) {
@@ -136,9 +136,10 @@ class Board extends Component {
 		return (
 			<div className='Board'>
 				<h1 className='Board-title'>
-					<span className="blink_me">Lights</span>-Out
+					<span className='blink_me'>Lights</span>-Out
 				</h1>
 				{this.renderTable()}
+				<p className='Board-data'>Click Counter: {this.state.clicks}</p>
 			</div>
 		);
 	}
